@@ -23,6 +23,8 @@
 		212476B819282DAB00EA2AD6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2124769419282DAB00EA2AD6 /* UIKit.framework */; };
 		212476C019282DAB00EA2AD6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 212476BE19282DAB00EA2AD6 /* InfoPlist.strings */; };
 		212476C219282DAB00EA2AD6 /* PeerLoggingClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 212476C119282DAB00EA2AD6 /* PeerLoggingClientTests.m */; };
+		212476D119282F8A00EA2AD6 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212476D019282F8A00EA2AD6 /* MultipeerConnectivity.framework */; };
+		213F3FF619288B3300F9E098 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 213F3FF519288B3300F9E098 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		212476BD19282DAB00EA2AD6 /* PeerLoggingClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PeerLoggingClientTests-Info.plist"; sourceTree = "<group>"; };
 		212476BF19282DAB00EA2AD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		212476C119282DAB00EA2AD6 /* PeerLoggingClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeerLoggingClientTests.m; sourceTree = "<group>"; };
+		212476D019282F8A00EA2AD6 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		213F3FF519288B3300F9E098 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213F3FF619288B3300F9E098 /* MessageUI.framework in Frameworks */,
+				212476D119282F8A00EA2AD6 /* MultipeerConnectivity.framework in Frameworks */,
 				2124769319282DAB00EA2AD6 /* CoreGraphics.framework in Frameworks */,
 				2124769519282DAB00EA2AD6 /* UIKit.framework in Frameworks */,
 				2124769119282DAB00EA2AD6 /* Foundation.framework in Frameworks */,
@@ -106,6 +112,8 @@
 		2124768F19282DAB00EA2AD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				213F3FF519288B3300F9E098 /* MessageUI.framework */,
+				212476D019282F8A00EA2AD6 /* MultipeerConnectivity.framework */,
 				2124769019282DAB00EA2AD6 /* Foundation.framework */,
 				2124769219282DAB00EA2AD6 /* CoreGraphics.framework */,
 				2124769419282DAB00EA2AD6 /* UIKit.framework */,
@@ -480,6 +488,7 @@
 				212476C719282DAB00EA2AD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		212476C819282DAB00EA2AD6 /* Build configuration list for PBXNativeTarget "PeerLoggingClientTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +497,7 @@
 				212476CA19282DAB00EA2AD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

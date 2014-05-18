@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MessageUI/MessageUI.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+
+@interface MasterViewController : UITableViewController<MCBrowserViewControllerDelegate,MCSessionDelegate,UIActionSheetDelegate,MFMailComposeViewControllerDelegate>{
+    
+}
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
+- (void)showBrowser:(id)sender;
+- (void)insertNewObject:(NSString*)message;
 
 @end
+

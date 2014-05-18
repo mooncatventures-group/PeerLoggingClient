@@ -17,10 +17,74 @@
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
+        
+        
     }
+    
+    [self createAppLog];
+    
     return YES;
+    
 }
-							
+
+-(void) createAppLog {
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"console.log"];
+    BOOL success = [fileManager removeItemAtPath:filePath error:nil];
+    if (success) {
+        NSLog(@"console file removed");
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *logPath = [documentsDirectory stringByAppendingPathComponent:@"console.log"];
+    freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding],"a+",stderr);
+
+
+    
+}
+
+-(void)createNewLog {
+    
+    
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"console.log"];
+    BOOL success = [fileManager removeItemAtPath:filePath error:nil];
+    if (success) {
+        NSLog(@"console file removed");
+    }
+
+    
+    NSArray *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [NSString stringWithFormat:@"%@",[documentPath objectAtIndex:0]]; // Get documents directory
+    
+    NSString *pcmOutputFile = [NSString stringWithFormat:@"%@/%@",documentsDirectory, @"console.log"]; // This will be the output path for the comple speex file.
+    
+    if((fd = open([pcmOutputFile UTF8String], O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)) < 0) {
+        NSLog(@"couldn't open output file");
+    }
+    
+}
+
+-(void) closeLogFile {
+    close(fd);
+}
+
+
+-(void) writeToLog:(NSString*)message {
+    
+    if(write(fd, (__bridge const void *)(message), [message length]) < 0)
+        perror("write()");
+       
+
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -46,6 +110,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+   // close(fd);
 }
 
 @end
